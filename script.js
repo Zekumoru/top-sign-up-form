@@ -14,6 +14,7 @@ const errorTexts = {
   'first-name': document.querySelector('.error-text.first-name'),
   'last-name': document.querySelector('.error-text.last-name'),
   'email': document.querySelector('.error-text.email'),
+  'phone-number': document.querySelector('.error-text.phone-number'),
   'password': document.querySelector('.error-text.password')
 };
 
@@ -40,22 +41,85 @@ inputs.lastName.addEventListener('focusout', onInputFocusOut);
 
 inputs.email.addEventListener('input', (e) => {
   const input = e.target;
+  const error = errorTexts.email;
 
+  if (!input.classList.contains('aggressive')) return;
   if (!input.value) {
     input.classList.add('error');
-    errorTexts.email.textContent = '* Email is required';
-    errorTexts.email.style.display = 'block';
+    error.textContent = '* Email is required';
+    error.style.display = 'block';
     return;
   }
 
   if (!/^[\w\.]+@((?!-)[a-z\d-]{1,63}(?<!-))\.[a-z]{2,6}$/i.test(input.value)) {
     input.classList.add('error');
-    errorTexts.email.textContent = '* Email must be a valid email';
-    errorTexts.email.style.display = 'block';
+    error.textContent = '* Email must be a valid email';
+    error.style.display = 'block';
   }
   else {
     input.classList.remove('error');
-    errorTexts.email.style.display = 'none';
+    error.style.display = 'none';
+  }
+});
+
+inputs.email.addEventListener('focusout', (e) => {
+  const input = e.target;
+  const error = errorTexts['email'];
+
+  if (!input.value) {
+    input.classList.add('error');
+    input.classList.add('aggressive');
+    error.textContent = '* Email is required';
+    error.style.display = 'block';
+  }
+  else if (!/^[\w\.]+@((?!-)[a-z\d-]{1,63}(?<!-))\.[a-z]{2,6}$/i.test(input.value)) {
+    input.classList.add('error');
+    input.classList.add('aggressive');
+    error.textContent = '* Email must be a valid email';
+    error.style.display = 'block';
+  }
+  else {
+    input.classList.remove('error');
+    error.style.display = 'none';
+  }
+});
+
+inputs.phoneNumber.addEventListener('input', (e) => {
+  const input = e.target;
+  const error = errorTexts['phone-number'];
+
+  if (input.classList.contains('error') && !input.value) {
+    input.classList.remove('error');
+    error.style.display = 'none';
+    return;
+  }
+
+  if (!input.value || !input.classList.contains('aggressive')) return;
+
+  if (!/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(input.value)) {
+    input.classList.add('error');
+    error.style.display = 'block';
+  }
+  else {
+    input.classList.remove('error');
+    error.style.display = 'none';
+  }
+});
+
+inputs.phoneNumber.addEventListener('focusout', (e) => {
+  const input = e.target;
+  const error = errorTexts['phone-number'];
+
+  if (!input.value) return;
+
+  if (!/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(input.value)) {
+    input.classList.add('error');
+    input.classList.add('aggressive');
+    error.style.display = 'block';
+  }
+  else {
+    input.classList.remove('error');
+    error.style.display = 'none';
   }
 });
 
