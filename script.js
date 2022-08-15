@@ -38,6 +38,27 @@ inputs.firstName.addEventListener('focusout', onInputFocusOut);
 inputs.lastName.addEventListener('input', onInputChange);
 inputs.lastName.addEventListener('focusout', onInputFocusOut);
 
+inputs.email.addEventListener('input', (e) => {
+  const input = e.target;
+
+  if (!input.value) {
+    input.classList.add('error');
+    errorTexts.email.textContent = '* Email is required';
+    errorTexts.email.style.display = 'block';
+    return;
+  }
+
+  if (!/^[\w\.]+@((?!-)[a-z\d-]{1,63}(?<!-))\.[a-z]{2,6}$/i.test(input.value)) {
+    input.classList.add('error');
+    errorTexts.email.textContent = '* Email must be a valid email';
+    errorTexts.email.style.display = 'block';
+  }
+  else {
+    input.classList.remove('error');
+    errorTexts.email.style.display = 'none';
+  }
+});
+
 submit.addEventListener('click', (e) => {
   let valid = true;
   const isValid = (input) => {
