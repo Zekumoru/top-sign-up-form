@@ -22,33 +22,37 @@
         </header>
         <form id="sign-up" action="#sign-up" method="get">
           <h2>Let's do this!</h2>
-          <ul>
-            <li>
+          <div class="row">
+            <div class="item">
               <label for="first-name">First Name</label>
               <input id="first-name" type="text" name="userFirstName" value="Thor">
-            </li>
-            <li>
+            </div>
+            <div class="item">
               <label for="last-name">Last Name</label>
               <input id="last-name" type="text" name="userLastName" value="Odinson">
-            </li>
-            <li>
+            </div>
+          </div>
+          <div class="row">
+            <div class="item">
               <label for="email">Email</label>
               <input id="email" type="email" name="userEmail">
-            </li>
-            <li>
+            </div>
+            <div class="item">
               <label for="phone-number">Phone Number</label>
               <input id="phone-number" type="tel" name="userPhoneNumber">
-            </li>
-            <li>
+            </div>
+          </div>
+          <div class="row">
+            <div class="item">
               <label for="password">Password</label>
-              <input id="password" type="password" name="userPassword">
-              <div class="password-error">* Passwords do not match</div>
-            </li>
-            <li>
-              <label for="password">Confirm Password</label>
-              <input id="password" type="password">
-            </li>
-          </ul>
+              <input id="password" class="error" type="password" name="userPassword">
+              <div class="error-text password">* Passwords do not match</div>
+            </div>
+            <div class="item">
+              <label for="confirm-password">Confirm Password</label>
+              <input id="confirm-password" class="error" type="password">
+            </div>
+          </div>
         </form>
         <footer>
           <button class="sign-up" form="sign-up" type="submit">Create Account</button>

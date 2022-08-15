@@ -2,8 +2,12 @@
   --bg-color: #F9FAFB;
   --bg-text-color: white;
   --bg-text-hover-color: rgb(229, 229, 229);
+  --error-color: firebrick;
+  --input-focus-color: steelblue;
+  --form-text-color: #2b323a;
   --form-bg-color: white;
   --logo-bg-color: rgba(0, 0, 0, 0.5);
+  --input-border-color: #E5E7EB;
   --button-color: #596D48;
   --button-hover-color: #556844;
   --button-active-color: #506340;
@@ -110,8 +114,62 @@ header p + p:not(:last-child) {
 }
 
 form {
+  color: var(--form-text-color);
   padding: 16px 36px;
   background-color: var(--form-bg-color);
+}
+
+form h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+form .row {
+  display: flex;
+}
+
+form .row:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+form .item {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+form label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+}
+
+form input {
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  outline: none;
+}
+
+form input:focus {
+  border-color: var(--input-focus-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.item:first-child {
+  margin-right: 60px;
+}
+
+.error {
+  border-color: var(--error-color);
+}
+
+.error-text {
+  font-size: 0.7rem;
+  color: var(--error-color);
 }
 
 footer {
