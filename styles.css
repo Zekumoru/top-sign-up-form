@@ -169,6 +169,7 @@ form input.error {
 .error-text {
   font-size: 0.7rem;
   color: var(--error-color);
+  display: none;
 }
 
 footer {

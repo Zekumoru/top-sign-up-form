@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Sign-up Form</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <div class="background">
@@ -25,17 +26,20 @@
           <div class="row">
             <div class="item">
               <label for="first-name">First Name</label>
-              <input id="first-name" type="text" name="userFirstName" value="Thor">
+              <input id="first-name" type="text" name="userFirstName" value="" required>
+              <div class="error-text first-name">* First name is required</div>
             </div>
             <div class="item">
               <label for="last-name">Last Name</label>
-              <input id="last-name" type="text" name="userLastName" value="Odinson">
+              <input id="last-name" type="text" name="userLastName" value="" required>
+              <div class="error-text last-name">* Last name is required</div>
             </div>
           </div>
           <div class="row">
             <div class="item">
               <label for="email">Email</label>
               <input id="email" type="email" name="userEmail">
+              <div class="error-text email">* Email is required</div>
             </div>
             <div class="item">
               <label for="phone-number">Phone Number</label>
