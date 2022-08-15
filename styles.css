@@ -34,8 +34,7 @@ a {
 }
 
 html, body {
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 body {
@@ -208,4 +207,22 @@ footer a {
 
 footer a:hover {
   color: var(--button-hover-color);
+}
+
+@media (max-height: 640px) {
+  header, footer {
+    position: static;
+  }
+
+  header {
+    margin-bottom: 44px;
+  }
+
+  footer {
+    margin-top: 26px;
+  }
+
+  .container {
+    padding: 20px 0;
+  }
 }
