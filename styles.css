@@ -142,7 +142,13 @@ form label {
   text-transform: uppercase;
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 1.8px;
+  letter-spacing: 0.18rem;
+}
+
+label .optional {
+  font-size: 0.6rem;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
 }
 
 form input {
