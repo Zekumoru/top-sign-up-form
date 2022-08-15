@@ -162,7 +162,7 @@ form input:focus {
   margin-right: 60px;
 }
 
-.error {
+form input.error {
   border-color: var(--error-color);
 }
 
