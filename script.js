@@ -48,10 +48,8 @@ inputs.email.addEventListener('input', (e) => {
     input.classList.add('error');
     error.textContent = '* Email is required';
     error.style.display = 'block';
-    return;
   }
-
-  if (!/^[\w\.]+@((?!-)[a-z\d-]{1,63}(?<!-))\.[a-z]{2,6}$/i.test(input.value)) {
+  else if (!/^[\w\.]+@((?!-)[a-z\d-]{1,63}(?<!-))\.[a-z]{2,6}$/i.test(input.value)) {
     input.classList.add('error');
     error.textContent = '* Email must be a valid email';
     error.style.display = 'block';
@@ -167,7 +165,8 @@ inputs.confirmPassword.addEventListener('input', (e) => {
 
 submit.addEventListener('click', (e) => {
   let valid = true;
-  const isValid = (input) => {
+
+  const isNameValid = (input) => {
     if (input.value) return;
 
     input.classList.add('error');
@@ -175,6 +174,42 @@ submit.addEventListener('click', (e) => {
     valid = false;
   };
 
+  isNameValid(inputs.firstName);
+  isNameValid(inputs.lastName);
 
-  e.preventDefault();
+  if (!inputs.email.value) {
+    inputs.email.classList.add('error');
+    errorTexts.email.textContent = '* Email is required';
+    errorTexts.email.style.display = 'block';
+    valid = false;
+  }
+  else if (!/^[\w\.]+@((?!-)[a-z\d-]{1,63}(?<!-))\.[a-z]{2,6}$/i.test(inputs.email.value)) {
+    valid = false;
+  }
+  
+  if (inputs.phoneNumber.value && !/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(inputs.phoneNumber.value)) {
+    inputs.phoneNumber.classList.add('error');
+    errorTexts[inputs.phoneNumber.id].display = 'block';
+    valid = false;
+  }
+
+  if (!inputs.password.value) {
+    inputs.password.classList.add('error');
+    inputs.confirmPassword.classList.add('error');
+    errorTexts.password.textContent = '* Password is required';
+    errorTexts.password.style.display = 'block';
+    valid = false;
+  }
+  else if (inputs.password.value !== inputs.confirmPassword.value) {
+    inputs.password.classList.add('error');
+    inputs.confirmPassword.classList.add('error');
+    errorTexts.password.textContent = '* Passwords do not match';
+    errorTexts.password.style.display = 'block';
+    valid = false;
+  }
+  
+  if (!valid) {
+    e.preventDefault();
+    return;
+  }
 });
