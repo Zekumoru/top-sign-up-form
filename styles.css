@@ -1,6 +1,7 @@
 :root {
   --bg-color: #F9FAFB;
   --bg-text-color: white;
+  --bg-text-hover-color: rgb(229, 229, 229);
   --form-bg-color: white;
   --logo-bg-color: rgba(0, 0, 0, 0.5);
   --button-color: #596D48;
@@ -71,6 +72,10 @@ body {
   text-align: center;
   font-size: 0.7rem;
   opacity: 0.9;
+}
+
+.credit a:hover {
+  color: var(--bg-text-hover-color);
 }
 
 .content {
