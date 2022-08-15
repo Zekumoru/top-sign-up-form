@@ -1,3 +1,8 @@
+@font-face {
+  font-family: norse-bold;
+  src: url(./fonts/norse-bold.otf);
+}
+
 * {
   margin: 0;
   padding: 0;
