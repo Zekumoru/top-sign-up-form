@@ -38,7 +38,7 @@
           <div class="row">
             <div class="item">
               <label for="email">Email</label>
-              <input id="email" type="email" name="userEmail">
+              <input id="email" type="email" name="userEmail" required>
               <div class="error-text email">* Email is required</div>
             </div>
             <div class="item">
@@ -50,12 +50,12 @@
           <div class="row">
             <div class="item">
               <label for="password">Password</label>
-              <input id="password" class="error" type="password" name="userPassword">
+              <input id="password" type="password" name="userPassword" required>
               <div class="error-text password">* Passwords do not match</div>
             </div>
             <div class="item">
               <label for="confirm-password">Confirm Password</label>
-              <input id="confirm-password" class="error" type="password">
+              <input id="confirm-password" type="password" required>
             </div>
           </div>
         </form>

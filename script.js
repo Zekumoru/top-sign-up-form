@@ -123,6 +123,48 @@ inputs.phoneNumber.addEventListener('focusout', (e) => {
   }
 });
 
+inputs.password.addEventListener('input', (e) => {
+  const confirmPassword = inputs.confirmPassword;
+  const input = e.target;
+  const error = errorTexts['password'];
+
+  if (!input.value) {
+    confirmPassword.classList.add('error');
+    input.classList.add('error');
+    error.textContent = '* Password is required';
+    error.style.display = 'block';
+  }
+  else if (confirmPassword.value !== input.value) {
+    confirmPassword.classList.add('error');
+    input.classList.add('error');
+    error.textContent = '* Passwords do not match';
+    error.style.display = 'block';
+  }
+  else {
+    confirmPassword.classList.remove('error');
+    input.classList.remove('error');
+    error.style.display = 'none';
+  }
+});
+
+inputs.confirmPassword.addEventListener('input', (e) => {
+  const password = inputs.password;
+  const input = e.target;
+  const error = errorTexts['password'];
+
+  if (password.value !== input.value) {
+    password.classList.add('error');
+    input.classList.add('error');
+    error.textContent = '* Passwords do not match';
+    error.style.display = 'block';
+  }
+  else {
+    password.classList.remove('error');
+    input.classList.remove('error');
+    error.style.display = 'none';
+  }
+});
+
 submit.addEventListener('click', (e) => {
   let valid = true;
   const isValid = (input) => {
