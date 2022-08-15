@@ -20,6 +20,10 @@ ul {
   list-style-type: none;
 }
 
+a {
+  color: inherit;
+}
+
 html, body {
   height: 100%;
   overflow: hidden;
@@ -30,6 +34,7 @@ body {
 }
 
 .background {
+  flex-shrink: 0;
   width: 420px;
   background: url(./images/background.jpg) center / cover;
   display: flex;
