@@ -1,3 +1,7 @@
+:root {
+  --logo-bg-color: rgba(0, 0, 0, 0.5);
+}
+
 @font-face {
   font-family: norse-bold;
   src: url(./fonts/norse-bold.otf);
@@ -6,5 +10,50 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+}
+
+.background {
+  width: 420px;
+  background: url(./images/background.jpg) center / cover;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--logo-bg-color);
+  margin-top: 160px;
+  padding: 12px 0;
+}
+
+.logo h1 {
+  font-family: norse-bold;
+  font-size: 4.2rem;
+}
+
+.logo img {
+  height: 100%;
+}
+
+.credit {
+  margin-top: auto;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 0.7rem;
+  opacity: 0.9;
 }
